@@ -1,7 +1,7 @@
 
 use strict;
 use warnings;
-use Test::More 'no_plan';
+use Test::More;
 
 use XML::Filter::RemoveEmpty;
 eval {
@@ -82,6 +82,7 @@ my @xmls = (
 	$xml0,
 );
 
+plan tests => scalar @tests;
 for my $i (0 .. $#tests) {
 	my ($test, $xml, $result) = ($tests[$i], $xmls[$i], $results[$i]);
 	my $filter = XML::Filter::RemoveEmpty->new(%$test);
